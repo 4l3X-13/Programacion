@@ -2,6 +2,7 @@ package Tema1;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+//Prueba
 public class Tema1Ejercicio5 {
     public static void main(String[] args) {
         int op1 = 24 % 5;
