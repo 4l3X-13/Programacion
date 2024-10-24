@@ -7,7 +7,7 @@ public class Tema2Ejercicio8 {
         Scanner scan = new Scanner(System.in);
         double euro, dolar;
         System.out.println("Inserta cuantos € tienes : ");
-        euro = scan.nextInt();
+        euro = scan.nextDouble();
         dolar = euro * 1.08;
         System.out.print("Tienes "+ dolar +" $.");
         scan.close();
