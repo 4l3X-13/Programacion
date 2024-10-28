@@ -10,7 +10,8 @@ public class Tema2Ejercicio12 {
         n1 = scan.nextDouble();
         n2 = scan.nextDouble();
         n3 = scan.nextDouble();
-        if (n1 >= n2 && n1 >= n3) {    System.out.println("El número 1 es el mayor.");
+        if (n1 >= n2 && n1 >= n3) {
+            System.out.println("El número 1 es el mayor.");
         } else if (n2 >= n1 && n2 >= n3) {    System.out.println("El número 2 es el mayor.");
         } else {    System.out.println("El número 3 es el mayor.");
         }
