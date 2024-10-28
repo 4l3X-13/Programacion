@@ -12,17 +12,19 @@ public class Tema2Ejercicio17 {
             numero = scan.nextInt();
 
             switch (numero){
-                case '0':
+                case 0 -> {
                     total = cantidad * 1.08;
                     System.out.println("El total " + total + "€");
-                    break;
-                case '1':
+                }
+
+                case 1 -> {
                     total = cantidad * 0.92;
                     System.out.println("La cantidad insertada son " + total + "$");
+                }
             }
             scan.close();
         }
     }
 
-}
+
 
