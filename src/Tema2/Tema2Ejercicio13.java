@@ -12,6 +12,5 @@ public class Tema2Ejercicio13 {
         minutos = scan.nextInt();
         System.out.println("Inserta los segundos que quieres: ");
         segundos = scan.nextInt();
-        if
     }
 }

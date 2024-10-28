@@ -3,7 +3,8 @@ package Tema2;
 import java.util.Scanner;
 
 public class Tema2Ejercicio17 {
-    public static void main(String[] args) {         Scanner scan = new Scanner(System.in);
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
             int numero;
             double cantidad, total;
             System.out.println("Inserta la cantidad deseada: ");
