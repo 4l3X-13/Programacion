@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Tema2Ejercicio26 {
 
-    public class NumeroPrimo {
         Scanner scan = new Scanner(System.in);
 
             public static void main(String[] args) {
@@ -35,5 +34,4 @@ public class Tema2Ejercicio26 {
             }
         }
 
-    }
-}
+
