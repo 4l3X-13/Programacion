@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Tema2Ejercicio23 {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);
                  int suma = 0;
                  int contador = 0;
                  int numero;
@@ -12,7 +12,7 @@ public class Tema2Ejercicio23 {
                  System.out.println("Introduce números enteros positivos (introduce un número negativo para terminar):");
 
                 while (true) {
-                    numero = scanner.nextInt();
+                    numero = scan.nextInt();
 
                     if (numero < 0) {
                         break;
@@ -29,6 +29,6 @@ public class Tema2Ejercicio23 {
                     System.out.println("No se han introducido números positivos.");
                 }
 
-                scanner.close();
+                scan.close();
             }
         }
