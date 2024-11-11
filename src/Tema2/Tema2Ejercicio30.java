@@ -15,7 +15,7 @@ public class Tema2Ejercicio30 {
         num1 = scan.nextInt();
 
         System.out.print("Introduce el primer número: ");
-        num1 = scan.nextInt();
+        num2 = scan.nextInt();
 
         System.out.println("Inserta la operación que deseas realizar: (+,-,*,/,% s");
         oper=scan.next().charAt(0);
@@ -24,6 +24,7 @@ public class Tema2Ejercicio30 {
             case 's' -> {
                 entra = false;
             }
+
             case '+' ->{
                 int suma;
                 suma = num1 + num2;
@@ -53,8 +54,10 @@ public class Tema2Ejercicio30 {
                 System.out.println("El resto es: "+ resto);
             }
 
+            case
+
 
         }
-
+    scan.close();
     }
 }
