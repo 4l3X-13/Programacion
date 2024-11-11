@@ -5,24 +5,23 @@ import java.util.Scanner;
 public class Tema2Ejercicio24 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        int nota, aprobado = 0, suspendido = 0;
-         while (true) {
-            System.out.println("Inserta la nota:");
+        int nota = 0, aprobado = 0, suspendido = 0;
+
+        while (nota >= 0) {
             nota = scan.nextInt();
 
             if (nota < 0) {
                 break;
             }
 
-            if (nota >= 5)
+            if (nota >= 5) {
                 aprobado++;
-
-            else {
+            } else {
                 suspendido++;
             }
         }
-                System.out.println("Hay "+ aprobado+ " aprobados y "+ suspendido+" suspendidos.");
 
+        System.out.println("Hay " + aprobado + " aprobados y " + suspendido + " suspendidos.");
         scan.close();
     }
 }
