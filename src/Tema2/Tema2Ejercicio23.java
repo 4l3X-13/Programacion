@@ -5,21 +5,17 @@ import java.util.Scanner;
 public class Tema2Ejercicio23 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-                 int suma = 0;
-                 int contador = 0;
-                 int numero;
+        int suma = 0;
+                int contador = 0;
+                int numero;
 
-                 System.out.println("Introduce números enteros positivos (introduce un número negativo para terminar):");
+                System.out.println("Introduce números enteros positivos (introduce un número negativo para terminar):");
+                numero = scan.nextInt();
 
-                while (true) {
-                    numero = scan.nextInt();
-
-                    if (numero < 0) {
-                        break;
-                    }
-
+                while (numero >= 0) {
                     suma += numero;
                     contador++;
+                    numero = scan.nextInt();
                 }
 
                 if (contador > 0) {
@@ -32,3 +28,4 @@ public class Tema2Ejercicio23 {
                 scan.close();
             }
         }
+
