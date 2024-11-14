@@ -489,8 +489,16 @@ public class JUEGO {
                         System.out.println("Jugador 1 ha recibido " + dañoP2 + " puntos de daño.");
                     }
                 }
+
+
+
+
+
+
         }
+
     }
+
 }
 
 
