@@ -309,15 +309,189 @@ public class JUEGO {
                         ataquePJ1 = ataqueTANQ1;
                         break;
 
-                    System.out.println("Quita " + ataquePJ1 + " PS al jugador 2");
-
-
                 }
 
 
+                if (velP1 > velP2) {
 
+                    // Determinar el daño que recibe el jugador 2
+                    int dañoP1 = 0;
+                    switch (p1eleccion) {
+                        case 1:
+                            dañoP1 = ataqueCA1 - defensaCA2;
+                            break;
+                        case 2:
+                            dañoP1 = ataqueFR1 - defensaFR2;
+                            break;
+                        case 3:
+                            dañoP1 = ataqueSUP1 - defensaSUP2;
+                            break;
+                        case 4:
+                            dañoP1 = ataqueTANQ1 - defensaTANQ2;
+                            break;
+                    }
+
+                    // Asegurarse de que el daño no sea negativo
+                    if (dañoP1 < 0) {
+                        dañoP1 = 0;
+                    }
+
+                    // Aplicar daño al jugador 2
+                    switch (p2eleccion) {
+                        case 1:
+                            vidaCA2 -= dañoP1;
+                            break;
+                        case 2:
+                            vidaFR2 -= dañoP1;
+                            break;
+                        case 3:
+                            vidaSUP2 -= dañoP1;
+                            break;
+                        case 4:
+                            vidaTANQ2 -= dañoP1;
+                            break;
+                    }
+
+                    System.out.println("¡Jugador 1 ha atacado a Jugador 2!");
+                    System.out.println("Jugador 2 ha recibido " + dañoP1 + " puntos de daño.");
+                } else if (velP2 > velP1) {
+                    // Personaje 2 ataca primero
+                    System.out.println("¡El Jugador 2 ataca primero!");
+
+                    // Determinar el daño que recibe el jugador 1
+                    int dañoP2 = 0;
+                    switch (p2eleccion) {
+                        case 1:
+                            dañoP2 = ataqueCA2 - defensaCA1;
+                            break;
+                        case 2:
+                            dañoP2 = ataqueFR2 - defensaFR1;
+                            break;
+                        case 3:
+                            dañoP2 = ataqueSUP2 - defensaSUP1;
+                            break;
+                        case 4:
+                            dañoP2 = ataqueTANQ2 - defensaTANQ1;
+                            break;
+                    }
+
+                    // Asegurarse de que el daño no sea negativo
+                    if (dañoP2 < 0) {
+                        dañoP2 = 0;
+                    }
+
+                    // Aplicar daño al jugador 1
+                    switch (p1eleccion) {
+                        case 1:
+                            vidaCA1 -= dañoP2;
+                            break;
+                        case 2:
+                            vidaFR1 -= dañoP2;
+                            break;
+                        case 3:
+                            vidaSUP1 -= dañoP2;
+                            break;
+                        case 4:
+                            vidaTANQ1 -= dañoP2;
+                            break;
+                    }
+
+                    System.out.println("¡Jugador 2 ha atacado a Jugador 1!");
+                    System.out.println("Jugador 1 ha recibido " + dañoP2 + " puntos de daño.");
+                } else {
+                    // Si las velocidades son iguales, se resuelve al azar quién ataca primero
+                    System.out.println("¡Ambos jugadores tienen la misma velocidad! El ataque se resuelve al azar.");
+
+                    // Generar un número aleatorio entre 1 y 2 para determinar el atacante
+                    int atacante = (int) (Math.random() * 2) + 1;
+
+                    if (atacante == 1) {
+                        // Jugador 1 ataca primero
+
+                        int dañoP1 = 0;
+                        switch (p1eleccion) {
+                            case 1:
+                                dañoP1 = ataqueCA1 - defensaCA2;
+                                break;
+                            case 2:
+                                dañoP1 = ataqueFR1 - defensaFR2;
+                                break;
+                            case 3:
+                                dañoP1 = ataqueSUP1 - defensaSUP2;
+                                break;
+                            case 4:
+                                dañoP1 = ataqueTANQ1 - defensaTANQ2;
+                                break;
+                        }
+
+                        if (dañoP1 < 0) {
+                            dañoP1 = 0;
+                        }
+
+                        switch (p2eleccion) {
+                            case 1:
+                                vidaCA2 -= dañoP1;
+                                break;
+                            case 2:
+                                vidaFR2 -= dañoP1;
+                                break;
+                            case 3:
+                                vidaSUP2 -= dañoP1;
+                                break;
+                            case 4:
+                                vidaTANQ2 -= dañoP1;
+                                break;
+                        }
+
+                        System.out.println("¡Jugador 1 ha atacado a Jugador 2!");
+                        System.out.println("");
+                        System.out.println("Jugador 2 ha recibido " + dañoP1 + " puntos de daño.");
+                    } else {
+                        // Jugador 2 ataca primero
+                        System.out.println("¡El Jugador 2 ataca primero!");
+
+                        int dañoP2 = 0;
+                        switch (p2eleccion) {
+                            case 1:
+                                dañoP2 = ataqueCA2 - defensaCA1;
+                                break;
+                            case 2:
+                                dañoP2 = ataqueFR2 - defensaFR1;
+                                break;
+                            case 3:
+                                dañoP2 = ataqueSUP2 - defensaSUP1;
+                                break;
+                            case 4:
+                                dañoP2 = ataqueTANQ2 - defensaTANQ1;
+                                break;
+                        }
+
+                        if (dañoP2 < 0) {
+                            dañoP2 = 0;
+                        }
+
+                        switch (p1eleccion) {
+                            case 1:
+                                vidaCA1 -= dañoP2;
+                                break;
+                            case 2:
+                                vidaFR1 -= dañoP2;
+                                break;
+                            case 3:
+                                vidaSUP1 -= dañoP2;
+                                break;
+                            case 4:
+                                vidaTANQ1 -= dañoP2;
+                                break;
+                        }
+
+                        System.out.println("¡Jugador 2 ha atacado a Jugador 1!");
+                        System.out.println("Jugador 1 ha recibido " + dañoP2 + " puntos de daño.");
+                    }
+                }
         }
     }
 }
+
 
 
