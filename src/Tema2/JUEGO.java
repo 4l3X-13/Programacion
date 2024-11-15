@@ -9,6 +9,8 @@ public class JUEGO {
         int p1eleccion;
         int velP1 = 0;
         int ataP1 = 0;
+        int ataquePJ1 = 0;
+
 
         System.out.println();
         System.out.println("Jugador 1\uFE0F⃣, elige personaje: ");
@@ -119,7 +121,6 @@ public class JUEGO {
 
         int ataP2 = 0;
         int velP2 = 0;
-        int ataquePJ1 = 0;
 
         System.out.println("1:🔫 -CAZARECOMPENSAS");
         System.out.println("2: " +
@@ -288,9 +289,9 @@ public class JUEGO {
         System.out.println("");
         System.out.println("");
         System.out.println("Elije la acción que quieres hacer: ");
-        System.out.println("- Atacar");
-        System.out.println("- Curarse");
-        System.out.println("- Pasar turno");
+        System.out.println("1 Atacar");
+        System.out.println("2 Curarse");
+        System.out.println("3 Pasar turno");
 
 
         switch (p1eleccion) {
@@ -331,10 +332,6 @@ public class JUEGO {
                             break;
                     }
 
-                    // Asegurarse de que el daño no sea negativo
-                    if (dañoP1 < 0) {
-                        dañoP1 = 0;
-                    }
 
                     // Aplicar daño al jugador 2
                     switch (p2eleccion) {
