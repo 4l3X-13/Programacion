@@ -1,502 +1,138 @@
 package Tema2;
 
 import java.util.Scanner;
-
+import java.util.Random;
 
 public class JUEGO {
+
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        int p1eleccion;
-        int velP1 = 0;
-        int ataP1 = 0;
-        int ataquePJ1 = 0;
+        Random rand = new Random();
 
+        // Variables de estadísticas
+        int vidaP1 = 100, ataqueP1 = 50, defensaP1 = 50, velocidadP1 = 50;
+        int vidaP2 = 100, ataqueP2 = 50, defensaP2 = 50, velocidadP2 = 50;
 
-        System.out.println();
-        System.out.println("Jugador 1\uFE0F⃣, elige personaje: ");
-        System.out.println();
-        System.out.println("░▒▓████████▓▒░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░▒▓████████▓▒░      ░▒▓████████▓▒░▒▓█▓▒░░▒▓█▓▒░      ░▒▓███████▓▒░░▒▓████████▓▒░▒▓███████▓▒░ ░▒▓███████▓▒░░▒▓██████▓▒░░▒▓███████▓▒░ ░▒▓██████▓▒░       ░▒▓█▓▒░▒▓████████▓▒░ \n" +
-                "░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░▒▓█▓▒░                ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░▒▓█▓▒░        \n" +
-                "░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░▒▓█▓▒░                ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░▒▓█▓▒░        \n" +
-                "░▒▓██████▓▒░ ░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░▒▓██████▓▒░           ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓███████▓▒░░▒▓██████▓▒░ ░▒▓███████▓▒░ ░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓████████▓▒░      ░▒▓█▓▒░▒▓██████▓▒░   \n" +
-                "░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░                ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░        \n" +
-                "░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░                ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░        \n" +
-                "░▒▓████████▓▒░▒▓████████▓▒░▒▓█▓▒░░▒▓██████▓▒░░▒▓████████▓▒░         ░▒▓█▓▒░    ░▒▓██████▓▒░       ░▒▓█▓▒░      ░▒▓████████▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓███████▓▒░ ░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓██████▓▒░░▒▓████████▓▒░ \n" +
-                "                                                                                                                                                                                                                         \n" +
-                "                                                                                                                                                                                                                         ");
-        System.out.println();
-        System.out.println("1:🔫 -CAZARECOMPENSAS");
-        System.out.println("2: " +
-                "▄︻芫══━一" +
-                "    -Francotirador");
-        System.out.println("3: \uD83E\uDE79 -Support");
-        System.out.println("4: \uD83E\uDE96 -Tanque");
+        // Elegir estadísticas para Jugador 1
+        System.out.println("Jugador 1:");
+        System.out.println("1: 🔫 - CAZARECOMPENSAS\n2: ▄︻芫══━一 - Francotirador\n3: \uD83E\uDE79 - Support\n4: \uD83E\uDE96 - Tanque\n5: ⚙️ - Personalizar estadísticas");
+        int opcion = scan.nextInt();
 
-        p1eleccion = scan.nextInt();
+        if (opcion == 5) {
+            System.out.println("Jugador 1, asigna tus estadísticas (máximo 500 puntos en total):");
+            System.out.print("Vida: ");
+            vidaP1 = scan.nextInt();
+            System.out.print("Ataque: ");
+            ataqueP1 = scan.nextInt();
+            System.out.print("Defensa: ");
+            defensaP1 = scan.nextInt();
+            System.out.print("Velocidad: ");
+            velocidadP1 = scan.nextInt();
 
-        //variables de CAZARRECOMPENSAS
-        int ataqueCA1 = 75;
-        int defensaCA1 = 60;
-        int vidaCA1 = 100;
-        int velocidadCA1 = 85;
-
-        //variables de FRANCOTIRADOR
-        int ataqueFR1 = 90;
-        int defensaFR1 = 50;
-        int vidaFR1 = 80;
-        int velocidadFR1 = 65;
-
-        //variables de SUPPORT
-        int ataqueSUP1 = 50;
-        int defensaSUP1 = 80;
-        int vidaSUP1 = 120;
-        int velocidadSUP1 = 60;
-
-        //variables de TANQUE
-        int ataqueTANQ1 = 60;
-        int defensaTANQ1 = 90;
-        int vidaTANQ1 = 150;
-        int velocidadTANQ1 = 45;
-
-
-        switch (p1eleccion) {
-            case 1:
-                System.out.println("¡HAS SELECCIONADO AL CAZARRECOMPENSAS!");
-                System.out.println("");
-                System.out.println("Tus estadísticas son las siguientes: ");
-                System.out.println("");
-                System.out.println("Ataque: " + ataqueCA1);
-                System.out.println("Defensa: " + defensaCA1);
-                System.out.println("Puntos de Vida: " + vidaCA1);
-                System.out.println("Velocidad: " + velocidadCA1);
-                break;
-
-            case 2:
-                System.out.println("¡HAS SELECCIONADO AL FRANCOTIRADOR!");
-                System.out.println("");
-                System.out.println("Tus estadísticas son las siguientes: ");
-                System.out.println("");
-                System.out.println("Ataque: " + ataqueFR1);
-                System.out.println("Defensa: " + defensaFR1);
-                System.out.println("Puntos de Vida: " + vidaFR1);
-                System.out.println("Velocidad: " + velocidadFR1);
-                break;
-
-            case 3:
-                System.out.println("¡HAS SELECCIONADO AL SUPPORT!");
-                System.out.println("");
-                System.out.println("Tus estadísticas son las siguientes: ");
-                System.out.println("");
-                System.out.println("Ataque: " + ataqueSUP1);
-                System.out.println("Defensa: " + defensaSUP1);
-                System.out.println("Puntos de Vida: " + vidaSUP1);
-                System.out.println("Velocidad: " + velocidadSUP1);
-                break;
-
-            case 4:
-                System.out.println("¡HAS SELECCIONADO AL TANQUE!");
-                System.out.println("");
-                System.out.println("Tus estadísticas son las siguientes: ");
-                System.out.println("");
-                System.out.println("Ataque: " + ataqueTANQ1);
-                System.out.println("Defensa: " + defensaTANQ1);
-                System.out.println("Puntos de Vida: " + vidaTANQ1);
-                System.out.println("Velocidad: " + velocidadTANQ1);
-                break;
+            if (vidaP1 + ataqueP1 + defensaP1 + velocidadP1 > 500) {
+                System.out.println("¡Te pasaste del límite! Se asignarán valores predeterminados.");
+                vidaP1 = 100;
+                ataqueP1 = 50;
+                defensaP1 = 50;
+                velocidadP1 = 50;
+            }
+        } else if (opcion == 1) {
+            vidaP1 = 100; ataqueP1 = 65; defensaP1 = 50; velocidadP1 = 80;
+        } else if (opcion == 2) {
+            vidaP1 = 80; ataqueP1 = 90; defensaP1 = 35; velocidadP1 = 50;
+        } else if (opcion == 3) {
+            vidaP1 = 120; ataqueP1 = 50; defensaP1 = 75; velocidadP1 = 65;
+        } else if (opcion == 4) {
+            vidaP1 = 150; ataqueP1 = 60; defensaP1 = 95; velocidadP1 = 40;
         }
 
-        System.out.println();
-        System.out.println("Jugador 2\uFE0F⃣, elige personaje: ");
-        System.out.println();
-        System.out.println("░▒▓████████▓▒░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░▒▓████████▓▒░      ░▒▓████████▓▒░▒▓█▓▒░░▒▓█▓▒░      ░▒▓███████▓▒░░▒▓████████▓▒░▒▓███████▓▒░ ░▒▓███████▓▒░░▒▓██████▓▒░░▒▓███████▓▒░ ░▒▓██████▓▒░       ░▒▓█▓▒░▒▓████████▓▒░ \n" +
-                "░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░▒▓█▓▒░                ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░▒▓█▓▒░        \n" +
-                "░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░▒▓█▓▒░                ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░▒▓█▓▒░        \n" +
-                "░▒▓██████▓▒░ ░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░▒▓██████▓▒░           ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓███████▓▒░░▒▓██████▓▒░ ░▒▓███████▓▒░ ░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓████████▓▒░      ░▒▓█▓▒░▒▓██████▓▒░   \n" +
-                "░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░                ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░        \n" +
-                "░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░                ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░        \n" +
-                "░▒▓████████▓▒░▒▓████████▓▒░▒▓█▓▒░░▒▓██████▓▒░░▒▓████████▓▒░         ░▒▓█▓▒░    ░▒▓██████▓▒░       ░▒▓█▓▒░      ░▒▓████████▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓███████▓▒░ ░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓██████▓▒░░▒▓████████▓▒░ \n" +
-                "                                                                                                                                                                                                                         \n" +
-                "                                                                                                                                                                                                                         ");
-        System.out.println();
+        System.out.println("Jugador 1 - Vida: " + vidaP1 + ", Ataque: " + ataqueP1 + ", Defensa: " + defensaP1 + ", Velocidad: " + velocidadP1);
 
-        int ataP2 = 0;
-        int velP2 = 0;
+        // Elegir estadísticas para Jugador 2
+        System.out.println("Jugador 2:");
+        System.out.println("1: Cazarecompensas\n2: Francotirador\n3: Support\n4: Tanque\n5: Personalizar estadísticas");
+        opcion = scan.nextInt();
 
-        System.out.println("1:🔫 -CAZARECOMPENSAS");
-        System.out.println("2: " +
-                "▄︻芫══━一" +
-                "    -Francotirador");
-        System.out.println("3: \uD83E\uDE79 -Support");
-        System.out.println("4: \uD83E\uDE96 -Tanque");
+        if (opcion == 5) {
+            System.out.println("Jugador 2, asigna tus estadísticas (máximo 500 puntos en total):");
+            System.out.print("Vida: ");
+            vidaP2 = scan.nextInt();
+            System.out.print("Ataque: ");
+            ataqueP2 = scan.nextInt();
+            System.out.print("Defensa: ");
+            defensaP2 = scan.nextInt();
+            System.out.print("Velocidad: ");
+            velocidadP2 = scan.nextInt();
 
-        int p2eleccion = scan.nextInt();
-
-        //variables de CAZARRECOMPENSAS
-        int ataqueCA2 = 75;
-        int defensaCA2 = 60;
-        int vidaCA2 = 100;
-        int velocidadCA2 = 85;
-
-        //variables de FRANCOTIRADOR
-        int ataqueFR2 = 90;
-        int defensaFR2 = 50;
-        int vidaFR2 = 80;
-        int velocidadFR2 = 65;
-
-        //variables de SUPPORT
-        int ataqueSUP2 = 50;
-        int defensaSUP2 = 80;
-        int vidaSUP2 = 120;
-        int velocidadSUP2 = 60;
-
-        //variables de TANQUE
-        int ataqueTANQ2 = 60;
-        int defensaTANQ2 = 90;
-        int vidaTANQ2 = 150;
-        int velocidadTANQ2 = 45;
-
-
-        switch (p2eleccion) {
-            case 1:
-                System.out.println("¡HAS SELECCIONADO AL CAZARRECOMPENSAS!");
-                System.out.println("");
-                System.out.println("Tus estadísticas son las siguientes: ");
-                System.out.println("");
-                System.out.println("Ataque: " + ataqueCA2);
-                System.out.println("Defensa: " + defensaCA2);
-                System.out.println("Puntos de Vida: " + vidaCA2);
-                System.out.println("Velocidad: " + velocidadCA2);
-                break;
-
-            case 2:
-                System.out.println("¡HAS SELECCIONADO AL FRANCOTIRADOR!");
-                System.out.println("");
-                System.out.println("Tus estadísticas son las siguientes: ");
-                System.out.println("");
-                System.out.println("Ataque: " + ataqueFR2);
-                System.out.println("Defensa: " + defensaFR2);
-                System.out.println("Puntos de Vida: " + vidaFR2);
-                System.out.println("Velocidad: " + velocidadFR2);
-                break;
-
-            case 3:
-                System.out.println("¡HAS SELECCIONADO AL SUPPORT!");
-                System.out.println("");
-                System.out.println("Tus estadísticas son las siguientes: ");
-                System.out.println("");
-                System.out.println("Ataque: " + ataqueSUP2);
-                System.out.println("Defensa: " + defensaSUP2);
-                System.out.println("Puntos de Vida: " + vidaSUP2);
-                System.out.println("Velocidad: " + velocidadSUP2);
-                break;
-
-            case 4:
-                System.out.println("¡HAS SELECCIONADO AL TANQUE!");
-                System.out.println("");
-                System.out.println("Tus estadísticas son las siguientes: ");
-                System.out.println("");
-                System.out.println("Ataque: " + ataqueTANQ2);
-                System.out.println("Defensa: " + defensaTANQ2);
-                System.out.println("Puntos de Vida: " + vidaTANQ2);
-                System.out.println("Velocidad: " + velocidadTANQ2);
-                break;
+            if (vidaP2 + ataqueP2 + defensaP2 + velocidadP2 > 500) {
+                System.out.println("¡Te pasaste del límite! Se asignarán valores predeterminados.");
+                vidaP2 = 100;
+                ataqueP2 = 50;
+                defensaP2 = 50;
+                velocidadP2 = 50;
+            }
+        } else if (opcion == 1) {
+            vidaP2 = 100; ataqueP2 = 65; defensaP2 = 50; velocidadP2 = 80;
+        } else if (opcion == 2) {
+            vidaP2 = 80; ataqueP2 = 90; defensaP2 = 35; velocidadP2 = 50;
+        } else if (opcion == 3) {
+            vidaP2 = 120; ataqueP2 = 50; defensaP2 = 75; velocidadP2 = 65;
+        } else if (opcion == 4) {
+            vidaP2 = 150; ataqueP2 = 60; defensaP2 = 95; velocidadP2 = 40;
         }
 
-        System.out.println("");
-        System.out.println("░▒▓████████▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓███████▓▒░░▒▓███████▓▒░ ░▒▓██████▓▒░          ░▒▓█▓▒░ \n" +
-                "   ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░      ░▒▓████▓▒░ \n" +
-                "   ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░         ░▒▓█▓▒░ \n" +
-                "   ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░▒▓███████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░         ░▒▓█▓▒░ \n" +
-                "   ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░         ░▒▓█▓▒░ \n" +
-                "   ░▒▓█▓▒░   ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░         ░▒▓█▓▒░ \n" +
-                "   ░▒▓█▓▒░    ░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░░▒▓██████▓▒░          ░▒▓█▓▒░ \n" +
-                "                                                                                   \n" +
-                "                                                                                   ");
-        System.out.println("");
+        System.out.println("Jugador 2 - Vida: " + vidaP2 + ", Ataque: " + ataqueP2 + ", Defensa: " + defensaP2 + ", Velocidad: " + velocidadP2);
 
-        //comparación de velocidad PJ1
+        System.out.println("¡Que comience el combate!");
+        boolean turnoJugador1 = velocidadP1 >= velocidadP2;
 
-        switch (p1eleccion) {
-            case 1:
-                velP1 = velocidadCA1;
-                break;
-            case 2:
-                velP1 = velocidadFR1;
-                break;
-            case 3:
-                velP1 = velocidadSUP1;
-                break;
-            case 4:
-                velP1 = velocidadTANQ1;
-                break;
-        }
+        while (vidaP1 > 0 && vidaP2 > 0) {
+            if (turnoJugador1) {
+                System.out.println("Turno de Jugador 1:");
+                System.out.println("Elige tu acción:\n1. Atacar\n2. Curarse\n3. Pasar turno");
+                int accion = scan.nextInt();
 
-        //comparación de velocidad PJ2
-
-        switch (p2eleccion) {
-            case 1:
-                velP2 = velocidadCA2;
-                break;
-            case 2:
-                velP2 = velocidadFR2;
-                break;
-            case 3:
-                velP2 = velocidadSUP2;
-                break;
-            case 4:
-                velP2 = velocidadTANQ2;
-                break;
-
-
-        }
-        if (velP1 > velP2) {
-            System.out.println("¡Jugador 1 empieza atacando!");
-        } else if (velP1 < velP2) {
-            System.out.println("¡Jugador 2 empieza atacando!");
-        }
-
-        switch (p1eleccion) {
-            case 1:
-                ataP1 = ataqueCA1;
-                break;
-            case 2:
-                ataP1 = ataqueFR1;
-                break;
-            case 3:
-                ataP1 = ataqueSUP1;
-                break;
-            case 4:
-                ataP1 = ataqueTANQ1;
-                break;
-
-        }
-        switch (p1eleccion) {
-            case 1:
-                ataP2 = ataqueCA2;
-                break;
-            case 2:
-                ataP2 = ataqueFR2;
-                break;
-            case 3:
-                ataP2 = ataqueSUP2;
-                break;
-            case 4:
-                ataP2 = ataqueTANQ2;
-                break;
-
-        }
-
-        System.out.println("");
-        System.out.println("");
-        System.out.println("Elije la acción que quieres hacer: ");
-        System.out.println("1 Atacar");
-        System.out.println("2 Curarse");
-        System.out.println("3 Pasar turno");
-
-
-        switch (p1eleccion) {
-            case 1:
-                switch (p2eleccion) {
-                    case 1:
-                        ataquePJ1 = ataqueCA1;
-                        break;
-                    case 2:
-                        ataquePJ1 = ataqueFR1;
-                        break;
-                    case 3:
-                        ataquePJ1 = ataqueSUP1;
-                        break;
-                    case 4:
-                        ataquePJ1 = ataqueTANQ1;
-                        break;
-
-                }
-
-
-                if (velP1 > velP2) {
-
-                    // Determinar el daño que recibe el jugador 2
-                    int dañoP1 = 0;
-                    switch (p1eleccion) {
-                        case 1:
-                            dañoP1 = ataqueCA1 - defensaCA2;
-                            break;
-                        case 2:
-                            dañoP1 = ataqueFR1 - defensaFR2;
-                            break;
-                        case 3:
-                            dañoP1 = ataqueSUP1 - defensaSUP2;
-                            break;
-                        case 4:
-                            dañoP1 = ataqueTANQ1 - defensaTANQ2;
-                            break;
-                    }
-
-
-                    // Aplicar daño al jugador 2
-                    switch (p2eleccion) {
-                        case 1:
-                            vidaCA2 -= dañoP1;
-                            break;
-                        case 2:
-                            vidaFR2 -= dañoP1;
-                            break;
-                        case 3:
-                            vidaSUP2 -= dañoP1;
-                            break;
-                        case 4:
-                            vidaTANQ2 -= dañoP1;
-                            break;
-                    }
-
-                    System.out.println("¡Jugador 1 ha atacado a Jugador 2!");
-                    System.out.println("Jugador 2 ha recibido " + dañoP1 + " puntos de daño.");
-                } else if (velP2 > velP1) {
-                    // Personaje 2 ataca primero
-                    System.out.println("¡El Jugador 2 ataca primero!");
-
-                    // Determinar el daño que recibe el jugador 1
-                    int dañoP2 = 0;
-                    switch (p2eleccion) {
-                        case 1:
-                            dañoP2 = ataqueCA2 - defensaCA1;
-                            break;
-                        case 2:
-                            dañoP2 = ataqueFR2 - defensaFR1;
-                            break;
-                        case 3:
-                            dañoP2 = ataqueSUP2 - defensaSUP1;
-                            break;
-                        case 4:
-                            dañoP2 = ataqueTANQ2 - defensaTANQ1;
-                            break;
-                    }
-
-                    // Asegurarse de que el daño no sea negativo
-                    if (dañoP2 < 0) {
-                        dañoP2 = 0;
-                    }
-
-                    // Aplicar daño al jugador 1
-                    switch (p1eleccion) {
-                        case 1:
-                            vidaCA1 -= dañoP2;
-                            break;
-                        case 2:
-                            vidaFR1 -= dañoP2;
-                            break;
-                        case 3:
-                            vidaSUP1 -= dañoP2;
-                            break;
-                        case 4:
-                            vidaTANQ1 -= dañoP2;
-                            break;
-                    }
-
-                    System.out.println("¡Jugador 2 ha atacado a Jugador 1!");
-                    System.out.println("Jugador 1 ha recibido " + dañoP2 + " puntos de daño.");
+                if (accion == 1) {
+                    boolean critico = rand.nextInt(100) < 20;
+                    int daño = critico ? (int) (ataqueP1 * 1.5) : ataqueP1;
+                    System.out.println("¡Ataque realizado! Daño causado: " + daño);
+                    vidaP2 -= daño;
+                } else if (accion == 2) {
+                    System.out.println("Te has curado 40 puntos de vida.");
+                    vidaP1 += 40;
                 } else {
-                    // Si las velocidades son iguales, se resuelve al azar quién ataca primero
-                    System.out.println("¡Ambos jugadores tienen la misma velocidad! El ataque se resuelve al azar.");
-
-                    // Generar un número aleatorio entre 1 y 2 para determinar el atacante
-                    int atacante = (int) (Math.random() * 2) + 1;
-
-                    if (atacante == 1) {
-                        // Jugador 1 ataca primero
-
-                        int dañoP1 = 0;
-                        switch (p1eleccion) {
-                            case 1:
-                                dañoP1 = ataqueCA1 - defensaCA2;
-                                break;
-                            case 2:
-                                dañoP1 = ataqueFR1 - defensaFR2;
-                                break;
-                            case 3:
-                                dañoP1 = ataqueSUP1 - defensaSUP2;
-                                break;
-                            case 4:
-                                dañoP1 = ataqueTANQ1 - defensaTANQ2;
-                                break;
-                        }
-
-                        if (dañoP1 < 0) {
-                            dañoP1 = 0;
-                        }
-
-                        switch (p2eleccion) {
-                            case 1:
-                                vidaCA2 -= dañoP1;
-                                break;
-                            case 2:
-                                vidaFR2 -= dañoP1;
-                                break;
-                            case 3:
-                                vidaSUP2 -= dañoP1;
-                                break;
-                            case 4:
-                                vidaTANQ2 -= dañoP1;
-                                break;
-                        }
-
-                        System.out.println("¡Jugador 1 ha atacado a Jugador 2!");
-                        System.out.println("");
-                        System.out.println("Jugador 2 ha recibido " + dañoP1 + " puntos de daño.");
-                    } else {
-                        // Jugador 2 ataca primero
-                        System.out.println("¡El Jugador 2 ataca primero!");
-
-                        int dañoP2 = 0;
-                        switch (p2eleccion) {
-                            case 1:
-                                dañoP2 = ataqueCA2 - defensaCA1;
-                                break;
-                            case 2:
-                                dañoP2 = ataqueFR2 - defensaFR1;
-                                break;
-                            case 3:
-                                dañoP2 = ataqueSUP2 - defensaSUP1;
-                                break;
-                            case 4:
-                                dañoP2 = ataqueTANQ2 - defensaTANQ1;
-                                break;
-                        }
-
-                        if (dañoP2 < 0) {
-                            dañoP2 = 0;
-                        }
-
-                        switch (p1eleccion) {
-                            case 1:
-                                vidaCA1 -= dañoP2;
-                                break;
-                            case 2:
-                                vidaFR1 -= dañoP2;
-                                break;
-                            case 3:
-                                vidaSUP1 -= dañoP2;
-                                break;
-                            case 4:
-                                vidaTANQ1 -= dañoP2;
-                                break;
-                        }
-
-                        System.out.println("¡Jugador 2 ha atacado a Jugador 1!");
-                        System.out.println("Jugador 1 ha recibido " + dañoP2 + " puntos de daño.");
-                    }
+                    System.out.println("Has pasado tu turno.");
                 }
+            } else {
+                System.out.println("Turno de Jugador 2:");
+                System.out.println("Elige tu acción:\n1. Atacar\n2. Curarse\n3. Pasar turno");
+                int accion = scan.nextInt();
 
+                if (accion == 1) {
+                    boolean critico = rand.nextInt(100) < 20;
+                    int daño = critico ? (int) (ataqueP2 * 1.5) : ataqueP2;
+                    System.out.println("¡Ataque realizado! Daño causado: " + daño);
+                    vidaP1 -= daño;
+                } else if (accion == 2) {
+                    System.out.println("Te has curado 40 puntos de vida.");
+                    vidaP2 += 40;
+                } else {
+                    System.out.println("Has pasado tu turno.");
+                }
+            }
 
+            System.out.println("Vida de Jugador 1: " + vidaP1);
+            System.out.println("Vida de Jugador 2: " + vidaP2);
 
-
-
-
+            turnoJugador1 = !turnoJugador1;
         }
 
+        if (vidaP1 <= 0 && vidaP2 <= 0) {
+            System.out.println("¡Es un empate!");
+        } else if (vidaP1 <= 0) {
+            System.out.println("¡Jugador 2 gana!");
+        } else {
+            System.out.println("¡Jugador 1 gana!");
+        }
     }
-
 }
-
-
-
