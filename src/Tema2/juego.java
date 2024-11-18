@@ -1,7 +1,7 @@
 package Tema2;
 import java.util.Scanner;
 import java.util.Random;
-
+//definitivoooooooooo
 public class juego {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
