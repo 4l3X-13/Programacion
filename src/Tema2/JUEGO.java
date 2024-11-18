@@ -134,5 +134,6 @@ public class JUEGO {
         } else {
             System.out.println("¡Jugador 1 gana!");
         }
+        scan.close();
     }
 }
