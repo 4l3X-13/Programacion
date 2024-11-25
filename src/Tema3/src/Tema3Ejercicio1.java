@@ -9,7 +9,7 @@ public class Tema3Ejercicio1 {
         } else if (number < 0) {
             return -1; // Negativo
         } else {
-            return 0; // Es 0
+            return 0; // 0
         }
     }
     public static void main(String[] args) {
