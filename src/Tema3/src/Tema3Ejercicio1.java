@@ -33,9 +33,4 @@ public class Tema3Ejercicio1 {
 
         scanner.close(); // Cerrar el Scanner
     }
-
-
-
-
-
 }
