@@ -1,64 +1,64 @@
-package Tema2;
-import java.util.Scanner;
-import java.util.Random;
-//definitivoooooooooo
-public class juego {
-    public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
-        Random rand = new Random();
+paquete Tema2;
+importar java. . . . . . . . . . . . . . . .util.Scanner;
+importar java. . . . . . . . . . . . . . . . .util.Aleatorio;
+//definitivooooooooo
+publico clase juego {
+ publico estatico vacio director(Cadena[] argumentos) {
+ Escaneador escanear = nuevo Escáner(Sistema.en);
+ Aleatorio rand = nuevo Aleatorio();
 
-        int vidaP1 = 0, vidaP2 = 0, defensaP1 = 0, velocidadP1 = 0, ataqueP1 = 0, ataqueP2 = 0, defensaP2 = 0, velocidadP2 = 0;
+ int vidaP1 = 0, vidaP2 = 0, defensaP1 = 0, velocidadP1 = 0, ataqueP1 = 0, ataqueP2 = 0, defensaP2 = 0, velocidadP2 = 0;
 
-        System.out.println("Jugador 1: ");
-        System.out.println("1: 🔫 - CAZARECOMPENSAS\n2: ▄︻芫══━一 - Francotirador\n3: 🛡️ - Support\n4: 🛡️ - Tanque\n5: ⚙️ - Personalizar estadísticas");
-        int p1eleccion = scan.nextInt();
+ Sistema apagado.imprimirln(„Jugador 1:");
+ Sistema apagado.imprimirln("1: 🔫 - CAZARECOMPENSAS\n2: ▄︻ ?? ══━lave - Francotirador\n3: ?? ← - Soporte\n4: ?? ← - Tanque\n5: ?? ¦ - Personalizar estadísticas");
+ int p1eleccion escaneo =.siguienteInt();
 
-        if (p1eleccion == 5) {
-            System.out.println("Introduce tus estadísticas para Jugador 1 (el total no debe exceder 500 puntos):");
-            System.out.print("Vida: ");
-            vidaP1 = scan.nextInt();
-            System.out.print("Ataque: ");
-            ataqueP1 = scan.nextInt();
-            System.out.print("Defensa: ");
-            defensaP1 = scan.nextInt();
-            System.out.print("Velocidad: ");
-            velocidadP1 = scan.nextInt();
+        si (p1eleccion == 5) {
+ Sistema apagado.imprimirln("Presenta tus estadísticas para Jugador 1 (el total no debe exceder los 500 puntos):");
+ Sistema apagado.imprimir("Vida: ");
+ escaneo vidaP1 =.siguienteInt();
+ Sistema apagado.imprimir("Ataque: ");
+ escaneo ataqueP1 =.siguienteInt();
+ Sistema apagado.imprimir("Defensa: ");
+ escaneo DefensaP1 =.siguienteInt();
+ Sistema apagado.imprimir("Velocidad: ");
+ escaneo velocidadP1 =.siguienteInt();
 
-            if (vidaP1 + ataqueP1 + defensaP1 + velocidadP1 > 500) {
-                System.out.println("Has excedido el límite de puntos. Se asignarán valores predeterminados.");
-                vidaP1 = 100;
-                ataqueP1 = 50;
-                defensaP1 = 50;
-                velocidadP1 = 50;
+            si (vidaP1 + ataqueP1 + defensaP1 + velocidadP1 > 500) {
+ Sistema apagado.imprimirln(„Ha superado el líacaro de puntos. . Se asignaran valores predeterminados. . .");
+ vidaP1 = 100;
+ ataqueP1 = 50;
+ defensaP1 = 50;
+ velocidadP1 = 50;
             }
-        } else {
-            switch (p1eleccion) {
-                case 1 -> { ataqueP1 = 65; vidaP1 = 100; defensaP1 = 50; velocidadP1 = 80; }
-                case 2 -> { ataqueP1 = 90; vidaP1 = 80; defensaP1 = 35; velocidadP1 = 50; }
-                case 3 -> { ataqueP1 = 50; vidaP1 = 120; defensaP1 = 75; velocidadP1 = 65; }
-                case 4 -> { ataqueP1 = 60; vidaP1 = 150; defensaP1 = 95; velocidadP1 = 40; }
+        } mas {
+            cambiar (p1eleccion) {
+                caso 1 -> { ataqueP1 = 65; vidaP1 = 100; defensaP1 = 50; velocidadP1 = 80; }
+                caso 2 -> { ataqueP1 = 90; vidaP1 = 80; defensaP1 = 35; velocidadP1 = 50; }
+                caso 3 -> { ataqueP1 = 50; vidaP1 = 120; defensaP1 = 75; velocidadP1 = 65; }
+                caso 4 -> { ataqueP1 = 60; vidaP1 = 150; defensaP1 = 95; velocidadP1 = 40; }
             }
         }
 
         // Limitar vida a 200
-        vidaP1 = Math.min(vidaP1, 200);
+ vidaP1 = Matemáticas.min(vidaP1, 200);
 
-        System.out.println("Jugador 1 - Estadísticas:");
-        System.out.println("Vida: " + vidaP1);
-        System.out.println("Ataque: " + ataqueP1);
-        System.out.println("Defensa: " + defensaP1);
-        System.out.println("Velocidad: " + velocidadP1);
+ Sistema apagado.imprimirln(„Jugador 1 - Estadísticas:");
+ Sistema apagado.imprimirln("Vida: " + vidaP1);
+ Sistema apagado.imprimirln("Ataque: " + ataqueP1);
+ Sistema apagado.imprimirln("Defensa: " + defensaP1);
+ Sistema apagado.imprimirln("Velocidad: " + velocidadP1);
 
-        System.out.println("Jugador 2: ");
-        System.out.println("1: 🔫 - CAZARECOMPENSAS\n2: ▄︻芫══━一 - Francotirador\n3: 🛡️ - Support\n4: 🛡️ - Tanque\n5: ⚙️ - Personalizar estadísticas");
-        int p2eleccion = scan.nextInt();
+ Sistema apagado.imprimirln(„Jugador 2:");
+ Sistema apagado.imprimirln("1: 🔫 - CAZARECOMPENSAS\n2: ▄︻ ?? ══━lave - Francotirador\n3: ?? ← - Soporte\n4: ?? ← - Tanque\n5: ?? ¦ - Personalizar estadísticas");
+ int p2eleccion escaneo =.siguienteInt();
 
-        if (p2eleccion == 5) {
-            System.out.println("Introduce tus estadísticas para Jugador 2 (el total no debe exceder 500 puntos):");
-            System.out.print("Vida: ");
-            vidaP2 = scan.nextInt();
-            System.out.print("Ataque: ");
-            ataqueP2 = scan.nextInt();
+        si (p2eleccion == 5) {
+ Sistema apagado.imprimirln("Presenta tus estadísticas para Jugador 2 (el total no debe exceder los 500 puntos):");
+ Sistema apagado.imprimir("Vida: ");
+ escaneo vidaP2 =.siguienteInt();
+ Sistema apagado.imprimir("Ataque: ");
+ escaneo AtaqueP2 =.siguienteInt();
             System.out.print("Defensa: ");
             defensaP2 = scan.nextInt();
             System.out.print("Velocidad: ");
