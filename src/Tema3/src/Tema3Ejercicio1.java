@@ -15,14 +15,11 @@ public class Tema3Ejercicio1 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        // Pedir al usuario un número
         System.out.print("Introduce un número: ");
         int userNumber = scanner.nextInt();
 
-        // Llamar a la función numberSign
         int result = numberSign(userNumber);
 
-        // Mostrar el resultado
         if (result == 1) {
             System.out.println("1");
         } else if (result == -1) {
@@ -31,6 +28,6 @@ public class Tema3Ejercicio1 {
             System.out.println("0");
         }
 
-        scanner.close(); // Cerrar el Scanner
+        scanner.close();
     }
 }
