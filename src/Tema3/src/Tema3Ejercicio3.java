@@ -24,8 +24,6 @@ public class Tema3Ejercicio3 {
         }else {
             return false;
         }
-
-
     }
 
 
@@ -35,6 +33,13 @@ public class Tema3Ejercicio3 {
         return perimetro;
 
     }
+
+    public static double calculateCircleArea(double radius) {
+      double area = (radius * radius) * 3.14;
+      return area;
+    }
+
+
 
 
 }
