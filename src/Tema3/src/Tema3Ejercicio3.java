@@ -7,9 +7,7 @@ public class Tema3Ejercicio3 {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Introduce el primer número del radio (>0)");
         double radio = scanner.nextDouble();
-        if (validRadius(radio)){
 
-        }
 
 
 
