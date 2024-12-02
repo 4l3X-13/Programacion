@@ -37,6 +37,7 @@ public class Tema3Ejercicio4 {
 
                 case 3:
                     System.out.println("Saliendo del programa. ¡Adiós!");
+
                     break;
 
             }
