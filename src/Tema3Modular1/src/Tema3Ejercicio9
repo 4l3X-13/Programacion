@@ -1,0 +1,33 @@
+import java.util.Scanner;
+
+clase pública Tema3Ejercicio9 
+ público estático vacío main(String[] args) {
+ Escáner escáner = nuevo Scanner(System.in);
+
+ // Pedir el cocheter y el número de líneas al usuario
+ System.out.println("Introducir el carácter para el juicio:");
+ char caracter = scanner.next().charAt(0);
+
+ System.out.println("Presentar el número de líneas del juicio:");
+ int lineas = scanner.nextInt();
+
+ // Cerrar el escáner
+ scanner.close();
+
+ // Llamar al procedimiento para imprimir el juicio
+ printTriangle(carácter, líneas);
+    }
+
+ printtriangle vacío estático público (carácter de carácter, líneas int) {
+ estrellas int = 1; // Número inicial de personas por línea
+
+ para (int i = 1; i <= líneas; i++) {
+ // Imprimir los personajes en la línea actual
+ para (int j = 1; j <= estrellas; j++) {
+ System.out.print(caracter);
+            }
+ System.out.println(); // Saltar a la siguiente línea
+ estrellas += 2; // Incrementar el número de personas en la siguiente línea
+        }
+    }
+}
