@@ -22,7 +22,7 @@ public class EjerciciosArrays1 {
 
     // c) Función que devuelve el mínimo del array
     public static int minArray(int[] array) {
-        int min = array[0];
+        int min = array[0]; //No se valida que el array no esté vacío.
         for (int num : array) {
             if (num < min) {
                 min = num;
@@ -89,7 +89,7 @@ public class EjerciciosArrays1 {
         return reversed;
     }
 
-    // j) Procedimiento que invierte el orden de un array en su lugar
+    // j) Procedimiento que invierte el orden de un array
     public static void reverseArrayInPlace(int[] array) {
         int temp;
         for (int i = 0; i < array.length / 2; i++) {
@@ -97,10 +97,11 @@ public class EjerciciosArrays1 {
             array[i] = array[array.length - 1 - i];
             array[array.length - 1 - i] = temp;
         }
+        array = reverseArray(array); //Innecesario, y no afecta al array original.
     }
 
     // k) Función que verifica si un array es capicúa
-    public static boolean isPalindrome(int[] array) {
+    public static boolean isCapicua(int[] array) {
         for (int i = 0; i < array.length / 2; i++) {
             if (array[i] != array[array.length - 1 - i]) {
                 return false;
@@ -124,12 +125,12 @@ public class EjerciciosArrays1 {
             int guess = scanner.nextInt() - 1; // Ajustar a índice del array
 
             if (guess < 0 || guess >= 15) {
-                System.out.println("Posición no válida. Intenta de nuevo.");
+                System.out.println("La posición no válida. Intenta de nuevo.");
                 continue;
             }
 
             if (guess == flyPosition) {
-                System.out.println("¡Has atrapado a la mosca! Ganaste.");
+                System.out.println("¡Has atrapado a la mosca!");
                 caught = true;
             } else if (Math.abs(guess - flyPosition) == 1) {
                 System.out.println("Casi la atrapas. La mosca ha cambiado de posición.");
@@ -168,37 +169,37 @@ public class EjerciciosArrays1 {
             System.out.println("8. Jugar Atrapa a la mosca");
             System.out.println("0. Salir");
 
-            int option = scanner.nextInt();
+            String option = scanner.nextLine(); // Error: debería usar nextInt.
             switch (option) {
-                case 1:
+                case "1":
                     printArray(array);
                     break;
-                case 2:
+                case "2":
                     System.out.println("Máximo: " + maxArray(array));
                     break;
-                case 3:
+                case "3":
                     System.out.println("Mínimo: " + minArray(array));
                     break;
-                case 4:
+                case "4":
                     System.out.println("Media: " + averageArray(array));
                     break;
-                case 5:
+                case "5":
                     System.out.println("Introduce el elemento a buscar:");
                     int element = scanner.nextInt();
                     System.out.println("Existe: " + existsInArray(array, element));
                     break;
-                case 6:
+                case "6":
                     reverseArrayInPlace(array);
                     System.out.println("Array invertido:");
                     printArray(array);
                     break;
-                case 7:
-                    System.out.println("Capicúa: " + isPalindrome(array));
+                case "7":
+                    System.out.println("Capicúa: " + isCapicua(array));
                     break;
-                case 8:
+                case "8":
                     playCatchTheFly();
                     break;
-                case 0:
+                case "0":
                     exit = true;
                     break;
                 default:
