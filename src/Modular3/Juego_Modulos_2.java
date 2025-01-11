@@ -106,14 +106,14 @@ public class Juego_Modulos_2 {
         switch (accion) {
             case 1: // Atacar
                 boolean esCritico = random.nextInt(100) < 20; // 20% de probabilidad de crítico
-                int daño = ataque - (defensaOponente / 2);
+                int danyo = ataque - (defensaOponente / 2);
                 if (esCritico) {
-                    daño *= 1.5;
+                    danyo *= 1.5;
                     System.out.println("¡Ataque crítico!");
                 }
-                daño = Math.max(daño, 0); // Evitar daño negativo
-                vidaOponente -= daño;
-                System.out.printf("Has causado %d puntos de daño. Vida restante del oponente: %d%n", daño, vidaOponente);
+                danyo = Math.max(danyo, 0); // Evitar daño negativo
+                vidaOponente -= danyo;
+                System.out.printf("Has causado %d puntos de daño. Vida restante del oponente: %d%n", danyo, vidaOponente);
                 break;
 
             case 2: // Curar
