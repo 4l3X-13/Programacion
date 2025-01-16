@@ -8,7 +8,7 @@ public class Juego_Modulos_2 {
         Random random = new Random();
 
         // Mensaje inicial
-        System.out.println("Bienvenidos al juego de combate por turnos.");
+        System.out.println("Bienvenido al juego de combate por turnos.");
         System.out.println("Cada jugador tiene 500 puntos para repartir entre sus estadísticas:");
         System.out.println("Vida, Ataque, Defensa y Velocidad.");
 
