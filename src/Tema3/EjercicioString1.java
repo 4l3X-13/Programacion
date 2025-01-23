@@ -33,7 +33,7 @@ public class EjercicioString1 {
 
     // Método principal para ejecutar las funciones
     public static void main(String[] args) {
-        String texto = "Hola, este es un ejemplo de texto para probar las funciones.";
+        String texto = "Ejemplo para String de Alejandro Navarro.";
 
         // Llamada a la función invertirYmayusculas
         String resultadoInvertido = invertirYmayusculas(texto);
