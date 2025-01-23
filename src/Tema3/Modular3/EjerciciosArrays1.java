@@ -112,38 +112,11 @@ public class EjerciciosArrays1 {
         return true;
     }
 
-    // Juego: Atrapa a la mosca
-    public static void playCatchTheFly() {
-        Scanner scanner = new Scanner(System.in);
-        Random random = new Random();
 
-        int[] array = new int[15];
-        int flyPosition = random.nextInt(15);
-        array[flyPosition] = 1; // La mosca está en esta posición
 
-        boolean caught = false;
-        while (!caught) {
-            System.out.println("Adivina la posición de la mosca (1-15):");
-            int guess = scanner.nextInt() - 1; // Ajustar a índice del array
 
-            if (guess < 0 || guess >= 15) {
-                System.out.println("La posición no válida. Intenta de nuevo.");
-                continue;
-            }
 
-            if (guess == flyPosition) {
-                System.out.println("¡Has atrapado a la mosca!");
-                caught = true;
-            } else if (Math.abs(guess - flyPosition) == 1) {
-                System.out.println("Casi la atrapas. La mosca ha cambiado de posición.");
-                array[flyPosition] = 0; // La mosca se mueve
-                flyPosition = random.nextInt(15);
-                array[flyPosition] = 1;
-            } else {
-                System.out.println("Fallaste. Intenta de nuevo.");
-            }
-        }
-    }
+
 
     // Programa principal con menú
     public static void main(String[] args) {
@@ -168,7 +141,6 @@ public class EjerciciosArrays1 {
             System.out.println("5. Verificar si un elemento existe");
             System.out.println("6. Invertir array");
             System.out.println("7. Verificar si el array es capicúa");
-            System.out.println("8. Jugar Atrapa a la mosca");
             System.out.println("0. Salir");
 
             String option = scanner.nextLine(); // Error: debería usar nextInt.
@@ -197,9 +169,6 @@ public class EjerciciosArrays1 {
                     break;
                 case "7":
                     System.out.println("Capicúa: " + isCapicua(array));
-                    break;
-                case "8":
-                    playCatchTheFly();
                     break;
                 case "0":
                     exit = true;

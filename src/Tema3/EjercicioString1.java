@@ -31,6 +31,21 @@ public class EjercicioString1 {
         return mayor;
     }
 
+
+    //d) Función
+
+
+
+
+
+
+
+
+
+
+
+
+
     // Método principal para ejecutar las funciones
     public static void main(String[] args) {
         String texto = "Ejemplo para String de Alejandro Navarro.";
