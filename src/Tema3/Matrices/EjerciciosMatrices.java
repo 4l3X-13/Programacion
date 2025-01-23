@@ -1,4 +1,4 @@
-package Tema3.Modular3.Matrices;
+package Tema3.Matrices;
 
 import java.util.Random;
 
