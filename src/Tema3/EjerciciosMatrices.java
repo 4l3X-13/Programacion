@@ -110,4 +110,37 @@ public class EjerciciosMatrices {
         }
         return true;
     }
+
+    public static void main(String[] args) {
+        EjerciciosMatrices matrix1 = new EjerciciosMatrices(3, 3);
+        EjerciciosMatrices matrix2 = new EjerciciosMatrices(3, 3);
+
+        // Mostrar las matrices generadas
+        System.out.println("Matriz 1:");
+        matrix1.printMatrix();
+        System.out.println("Matriz 2:");
+        matrix2.printMatrix();
+
+        // Realizar operaciones
+        System.out.println("Máximo de la matriz 1: " + matrix1.getMax());
+        System.out.println("Mínimo de la matriz 1: " + matrix1.getMin());
+        System.out.println("Promedio de la matriz 1: " + matrix1.getAverage());
+
+        int searchElement = 5;
+        System.out.println("¿El número " + searchElement + " existe en la matriz 1? " + matrix1.elementExists(searchElement));
+        System.out.println("El número " + searchElement + " aparece " + matrix1.countOccurrences(searchElement) + " veces en la matriz 1.");
+
+        // Sumar matrices
+        int[][] resultAdd = addMatrices(matrix1.matrix, matrix2.matrix);
+        System.out.println("Resultado de la suma de las matrices:");
+        for (int[] row : resultAdd) {
+            for (int element : row) {
+                System.out.print(element + " ");
+            }
+            System.out.println();
+        }
+
+        // Verificar si una matriz es identidad
+        System.out.println("¿Es la matriz 1 una matriz identidad? " + matrix1.isIdentityMatrix());
+    }
 }
