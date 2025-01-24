@@ -101,11 +101,17 @@ public class EjercicioString1 {
     }
 
 
-    // e) Función para contar palabras
+    //e) Función para contar palabras
     public static int contarPalabras(String cadena) {
         String[] palabras = cadena.split(" ");
         return palabras.length;
     }
 
 
+    //f) Función que recibe un número de teléfono y lo convierte en otro formato
+
+
+
 }
+
+
