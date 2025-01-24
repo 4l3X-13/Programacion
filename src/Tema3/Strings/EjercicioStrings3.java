@@ -4,16 +4,13 @@ public class EjercicioStrings3 {
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
 
-        // Solicitar palabra al primer jugador
         System.out.println("Jugador 1, introduce la palabra secreta: ");
         String palabraSecreta = teclado.nextLine().toLowerCase();
 
-        // Limpiar la consola simuladamente
         for (int i = 0; i < 50; i++) {
             System.out.println();
         }
 
-        // Inicializar configuración del juego
         char[] palabraOculta = new char[palabraSecreta.length()];
         for (int i = 0; i < palabraOculta.length; i++) {
             palabraOculta[i] = '_';
@@ -25,7 +22,6 @@ public class EjercicioStrings3 {
         System.out.println("Jugador 2, comienza el juego del ahorcado.");
 
         while (intentosRestantes > 0 && !palabraAdivinada) {
-            // Mostrar el estado actual del juego
             System.out.println("Palabra: " + String.valueOf(palabraOculta));
             System.out.println("Intentos restantes: " + intentosRestantes);
             mostrarAhorcado(6 - intentosRestantes);
@@ -62,13 +58,11 @@ public class EjercicioStrings3 {
                 System.out.println("Entrada no válida. Inténtalo de nuevo.");
             }
 
-            // Verificar si la palabra ha sido adivinada
             if (String.valueOf(palabraOculta).equals(palabraSecreta)) {
                 palabraAdivinada = true;
             }
         }
 
-        // Resultado final del juego
         if (palabraAdivinada) {
             System.out.println("¡Felicidades! Has adivinado la palabra: " + palabraSecreta);
         } else {
