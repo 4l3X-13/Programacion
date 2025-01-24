@@ -106,4 +106,6 @@ public class EjercicioString1 {
         String[] palabras = cadena.split(" ");
         return palabras.length;
     }
+
+
 }
