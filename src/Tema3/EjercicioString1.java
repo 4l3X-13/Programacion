@@ -31,12 +31,19 @@ public class EjercicioString1 {
                 System.out.println("Palabra más larga: " + palabraLarga);
                 break;
             case 4:
-                // Llamada a la función contarOcurrencias
                 System.out.print("Ingresa la cadena a buscar: ");
                 String cadenaABuscar = scanner.nextLine();
                 int ocurrencias = contarOcurrencias(texto, cadenaABuscar);
                 System.out.println("Número de ocurrencias: " + ocurrencias);
                 break;
+
+            case 5:
+                int numeroPalabras = contarPalabras(texto);
+                System.out.println("Número de palabras: " + numeroPalabras);
+                break;
+
+
+
             default:
                 System.out.println("Opción inválida.");
         }
@@ -75,27 +82,28 @@ public class EjercicioString1 {
         return palabraMasLarga;
     }
 
+//d) Función que recibe una cadena y devuelve el número de palabras que contiene.
+    public static int contarOcurrencias(String texto, String palabraBuscada) {
+        texto = texto.toLowerCase();
+        palabraBuscada = palabraBuscada.toLowerCase();
 
-    //d) Función que recibe dos cadenas y devuelve el número de veces que la segunda cadena esté incluida en la primera.
-    public static int contarOcurrencias(String cadena1, String cadena2) {
-        int contador = 0, index = 0;
-        while ((index = cadena1.indexOf(cadena2, index)) != -1) {
-            contador++;
-            index++;
+        // Dividimos el texto en palabras (separando por espacios)
+        String[] palabras = texto.split(" ");
+
+        // Contamos las ocurrencias
+        int contador = 0;
+        for (String palabra : palabras) {
+            if (palabra.equals(palabraBuscada)) {
+                contador++;
+            }
         }
         return contador;
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
+    // e) Función para contar palabras
+    public static int contarPalabras(String cadena) {
+        String[] palabras = cadena.split(" ");
+        return palabras.length;
+    }
 }
