@@ -23,14 +23,16 @@ public class EjercicioString1 {
 
     // c) Función que encuentra la palabra más larga
     public static String palabraMasLarga(String cadena) {
-        String[] palabras = cadena.split("\\s+");
-        String mayor = "";
+        String[] palabras = cadena.split(" ");
+        String palabraMasLarga = "";
+
         for (String palabra : palabras) {
-            if (palabra.length() > mayor.length()) {
-                mayor = palabra;
+            if (palabra.length() > palabraMasLarga.length()) {
+                palabraMasLarga = palabra;
             }
         }
-        return mayor;
+
+        return palabraMasLarga;
     }
 
 
