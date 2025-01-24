@@ -1,5 +1,7 @@
 package Tema3;
 
+import java.util.Scanner;
+
 public class EjercicioString1 {
 
     //a) Función que invierte la cadena y la convierte en mayúsculas
@@ -34,7 +36,14 @@ public class EjercicioString1 {
 
     //d) Función que recibe dos cadenas y devuelve el número de veces que la segunda cadena esté incluida en la primera.
 
-
+    public static int contarOcurrencias(String cadena1, String cadena2) {
+        int contador = 0, index = 0;
+        while ((index = cadena1.indexOf(cadena2, index)) != -1) {
+            contador++;
+            index++;
+        }
+        return contador;
+    }
 
 
 
@@ -49,18 +58,41 @@ public class EjercicioString1 {
 
     // Método principal para ejecutar las funciones
     public static void main(String[] args) {
-        String texto = "Ejemplo para String de Alejandro Navarro.";
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Elige una opción: " +
+                "1. Invertir y poner en mayúsculas" +
+                "2. Contar vocales" +
+                "3. Encontrar la palabra más larga\n" +
+                "4. Contar ocurrencias");
+        int eleccion = scanner.nextInt();
+        scanner.nextLine(); // Consumir el salto de línea
 
-        // Llamada a la función invertirYmayusculas
-        String resultadoInvertido = invertirYmayusculas(texto);
-        System.out.println("Cadena invertida y en mayúsculas: " + resultadoInvertido);
+        // Pedimos la cadena una sola vez y la usamos en todos los casos
+        System.out.print("Ingresa una cadena: ");
+        String texto = scanner.nextLine();
 
-        // Llamada a la función contarVocales
-        int numeroVocales = contarVocales(texto);
-        System.out.println("Número de vocales: " + numeroVocales);
-
-        // Llamada a la función palabraMasLarga
-        String palabraLarga = palabraMasLarga(texto);
-        System.out.println("Palabra más larga: " + palabraLarga);
+        switch (eleccion) {
+            case 1:
+                String resultadoInvertido = invertirYmayusculas(texto);
+                System.out.println("Cadena invertida y en mayúsculas: " + resultadoInvertido);
+                break;
+            case 2:
+                int numeroVocales = contarVocales(texto);
+                System.out.println("Número de vocales: " + numeroVocales);
+                break;
+            case 3:
+                String palabraLarga = palabraMasLarga(texto);
+                System.out.println("Palabra más larga: " + palabraLarga);
+                break;
+            case 4:
+                // Llamada a la función contarOcurrencias
+                System.out.print("Ingresa la cadena a buscar: ");
+                String cadenaABuscar = scanner.nextLine();
+                int ocurrencias = contarOcurrencias(texto, cadenaABuscar);
+                System.out.println("Número de ocurrencias: " + ocurrencias);
+                break;
+            default:
+                System.out.println("Opción inválida.");
+        }
     }
 }
