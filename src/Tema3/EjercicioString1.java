@@ -32,7 +32,8 @@ public class EjercicioString1 {
     }
 
 
-    //d) Función
+    //d) Función que recibe dos cadenas y devuelve el número de veces que la segunda cadena esté incluida en la primera.
+
 
 
 
