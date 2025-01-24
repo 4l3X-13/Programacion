@@ -45,29 +45,17 @@ public class EjercicioString1 {
         return contador;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-    // Método principal para ejecutar las funciones
+    // MAIN
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Elige una opción: " +
-                "1. Invertir y poner en mayúsculas" +
-                "2. Contar vocales" +
-                "3. Encontrar la palabra más larga\n" +
-                "4. Contar ocurrencias");
+                " 1. Invertir y poner en mayúsculas" +
+                " 2. Contar vocales" +
+                " 3. Encontrar la palabra más larga" +
+                " 4. Contar ocurrencias");
         int eleccion = scanner.nextInt();
         scanner.nextLine(); // Consumir el salto de línea
 
-        // Pedimos la cadena una sola vez y la usamos en todos los casos
         System.out.print("Ingresa una cadena: ");
         String texto = scanner.nextLine();
 
