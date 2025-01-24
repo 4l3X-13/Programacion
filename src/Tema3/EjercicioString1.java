@@ -1,54 +1,10 @@
 package Tema3;
 
 import java.util.Scanner;
-
 public class EjercicioString1 {
-
-    //a) Función que invierte la cadena y la convierte en mayúsculas
-    public static String invertirYmayusculas (String cadena){
-        return new StringBuilder(cadena).reverse().toString().toUpperCase();
-    }
-
-    //b) Función que cuenta el número de vocales
-    public static int contarVocales(String cadena){
-        int contador = 0;
-        String vocales = "aeiouAEIOU";
-        for (char c : cadena.toCharArray()) {
-            if(vocales.indexOf(c) != -1) {
-                contador++;
-            }
-        }
-        return contador;
-    }
-
-    // c) Función que encuentra la palabra más larga
-    public static String palabraMasLarga(String cadena) {
-        String[] palabras = cadena.split(" ");
-        String palabraMasLarga = "";
-
-        for (String palabra : palabras) {
-            if (palabra.length() > palabraMasLarga.length()) {
-                palabraMasLarga = palabra;
-            }
-        }
-
-        return palabraMasLarga;
-    }
-
-
-    //d) Función que recibe dos cadenas y devuelve el número de veces que la segunda cadena esté incluida en la primera.
-
-    public static int contarOcurrencias(String cadena1, String cadena2) {
-        int contador = 0, index = 0;
-        while ((index = cadena1.indexOf(cadena2, index)) != -1) {
-            contador++;
-            index++;
-        }
-        return contador;
-    }
-
     // MAIN
     public static void main(String[] args) {
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("Elige una opción: " +
                 " 1. Invertir y poner en mayúsculas" +
@@ -85,4 +41,61 @@ public class EjercicioString1 {
                 System.out.println("Opción inválida.");
         }
     }
+
+
+    //a) Función que invierte la cadena y la convierte en mayúsculas
+    public static String invertirYmayusculas (String cadena){
+        return new StringBuilder(cadena).reverse().toString().toUpperCase();
+    }
+
+
+    //b) Función que cuenta el número de vocales
+    public static int contarVocales(String cadena){
+        int contador = 0;
+        String vocales = "aeiouAEIOU";
+        for (char c : cadena.toCharArray()) {
+            if(vocales.indexOf(c) != -1) {
+                contador++;
+            }
+        }
+        return contador;
+    }
+
+
+    // c) Función que encuentra la palabra más larga
+    public static String palabraMasLarga(String cadena) {
+        String[] palabras = cadena.split(" ");
+        String palabraMasLarga = "";
+
+        for (String palabra : palabras) {
+            if (palabra.length() > palabraMasLarga.length()) {
+                palabraMasLarga = palabra;
+            }
+        }
+        return palabraMasLarga;
+    }
+
+
+    //d) Función que recibe dos cadenas y devuelve el número de veces que la segunda cadena esté incluida en la primera.
+    public static int contarOcurrencias(String cadena1, String cadena2) {
+        int contador = 0, index = 0;
+        while ((index = cadena1.indexOf(cadena2, index)) != -1) {
+            contador++;
+            index++;
+        }
+        return contador;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
