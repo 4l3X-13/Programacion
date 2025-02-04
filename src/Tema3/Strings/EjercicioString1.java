@@ -1,3 +1,5 @@
+package Tema3.Strings;
+
 import java.util.Scanner;
 
 public class EjercicioString1 {

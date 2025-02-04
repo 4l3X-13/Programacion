@@ -9,7 +9,6 @@ public class Reloj {
     public Reloj() {
     }
     public Reloj(int hora,int minuto,int segundo){
-
     }
 
     public int getHora() {

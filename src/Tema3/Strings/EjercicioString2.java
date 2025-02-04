@@ -1,3 +1,5 @@
+package Tema3.Strings;
+
 public class EjercicioString2 {
 
     // Método para cifrar un mensaje
