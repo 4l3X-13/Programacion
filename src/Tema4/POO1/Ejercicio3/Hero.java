@@ -7,41 +7,34 @@ public class Hero {
     private int attack;
     private int defense;
 
-    public Hero(String name, int maxHealth, int attack, int defense) {
+    private static final int EXP_TO_LEVEL_UP = 50;
+    private static final int POTION_HEAL = 10;
+    private static final int REST_HEAL = 50;
+    private static final int MIN_DAMAGE = 10;
+
+    public Hero(String name, int level, int maxHealth, int attack, int defense) {
         this.name = name;
-        this.level = 1;
-        this.health = maxHealth;
+        this.level = level;
         this.maxHealth = maxHealth;
+        this.health = maxHealth;
         this.experience = 0;
         this.attack = attack;
         this.defense = defense;
     }
 
     public void drinkPotion() {
-        health += 10;
-        if (health > maxHealth) {
-            health = maxHealth;
-        }
+        health = Math.min(health + POTION_HEAL, maxHealth);
     }
 
     public void rest() {
-        health += 50;
-        if (health > maxHealth) {
-            health = maxHealth;
-        }
+        health = Math.min(health + REST_HEAL, maxHealth);
     }
 
     public void attack(Hero enemy) {
-        int damage = attack - enemy.defense;
-        if (damage < 10) {
-            damage = 10;
-        }
-        enemy.health -= damage;
-        if (enemy.health < 0) {
-            enemy.health = 0;
-        }
-        experience += 10;
-        if (experience >= 50) {
+        int damage = Math.max(this.attack - enemy.defense, MIN_DAMAGE);
+        enemy.health = Math.max(enemy.health - damage, 0);
+        this.experience += 10;
+        if (this.experience >= EXP_TO_LEVEL_UP) {
             levelUp();
         }
     }
@@ -55,20 +48,9 @@ public class Hero {
         experience = 0;
     }
 
+    @Override
     public String toString() {
-        return "Hero: " + name + ", Level: " + level + ", Health: " + health + "/" + maxHealth;
-    }
-
-    public static void main(String[] args) {
-        Hero hero1 = new Hero("Guerrero", 100, 20, 5);
-        Hero hero2 = new Hero("Orco", 120, 15, 8);
-
-        System.out.println(hero1);
-        System.out.println(hero2);
-
-        hero1.attack(hero2);
-        System.out.println("Después del ataque:");
-        System.out.println(hero1);
-        System.out.println(hero2);
+        return "Hero{name='" + name + "', level=" + level + ", health=" + health + "/" + maxHealth +
+               ", attack=" + attack + ", defense=" + defense + ", experience=" + experience + "}";
     }
 }
