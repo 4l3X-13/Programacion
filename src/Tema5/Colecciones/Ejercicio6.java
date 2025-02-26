@@ -28,14 +28,14 @@ class Hero {
 
     public void atacar(Enemigo enemigo) {
         Random random = new Random();
-        int dano = ataque + random.nextInt(10); // Dano aleatorio
+        int dano = ataque + random.nextInt(10); 
         enemigo.recibirAtaque(dano);
         System.out.println(nombre + " ataca a " + enemigo.getNombre() + " con " + dano + " puntos de daño.");
     }
 
     public void descansar() {
         Random random = new Random();
-        if (random.nextInt(1000) < 1) { // 0.1% de probabilidad
+        if (random.nextInt(1000) < 1) { 
             int vidaRecuperada = 50;
             vida += vidaRecuperada;
             System.out.println(nombre + " descansa y recupera " + vidaRecuperada + " puntos de vida.");
@@ -44,7 +44,7 @@ class Hero {
 
     public void encontrarPocion() {
         Random random = new Random();
-        if (random.nextInt(10) == 0) { // 10% de probabilidad
+        if (random.nextInt(10) == 0) { 
             int vidaRecuperada = 30;
             vida += vidaRecuperada;
             System.out.println(nombre + " ha encontrado una poción y recupera " + vidaRecuperada + " puntos de vida.");
@@ -74,7 +74,7 @@ class Enemigo {
 
     public void atacar(Hero hero) {
         Random random = new Random();
-        int dano = ataque + random.nextInt(5); // Dano aleatorio
+        int dano = ataque + random.nextInt(5); 
         hero.recibirAtaque(dano);
         System.out.println(nombre + " ataca a " + hero.nombre + " con " + dano + " puntos de daño.");
     }
@@ -85,7 +85,7 @@ class Enemigo {
 
     public boolean huir() {
         Random random = new Random();
-        return random.nextInt(10) == 0; // 10% de probabilidad de huir
+        return random.nextInt(10) == 0; 
     }
 }
 
@@ -111,7 +111,7 @@ public class Ejercicio6 {
                     if (enemigo.huir()) {
                         System.out.println(enemigo.getNombre() + " ha huido de la pelea.");
                         enemigos.remove(i);
-                        i--; // Ajustamos el índice
+                        i--; 
                     } else {
                         enemigo.atacar(heroe);
                     }
@@ -119,7 +119,7 @@ public class Ejercicio6 {
 
                 if (heroe.estaVivo()) {
                     heroe.atacar(enemigos.get(0));
-                    enemigos.removeIf(enemigo -> !enemigo.estaVivo()); // Eliminar enemigos muertos
+                    enemigos.removeIf(enemigo -> !enemigo.estaVivo()); 
                 }
             }
 
