@@ -7,11 +7,11 @@ import java.io.IOException;
 public class EjercicioB1 {
     public static void main(String[] args) {
         String nombreArchivo = "numeros.txt";
-        int maximo = Integer.MIN_VALUE;
-        int minimo = Integer.MAX_VALUE;
+        int maximo = Integer.MAX_VALUE;
+        int minimo = Integer.MIN_VALUE;
 
         try {
-            BufferedReader lector = new BufferedReader(new FileReader(nombreArchivo));
+            BufferedReader lector = new BufferedReader(new FileReader("numeros.txt"));
             String linea;
 
             while ((linea = lector.readLine()) != null) {
