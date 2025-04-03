@@ -16,7 +16,7 @@ public class EjercicioB7 {
         int numLineas = 0;
         int numPalabras = 0;
         int numCaracteres = 0;
-        HashMap<String, Integer> frecuencias = new HashMap<>();
+        HashMap<String, Integer> frecuencia = new HashMap<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(archivo))) {
             String linea;
@@ -29,7 +29,7 @@ public class EjercicioB7 {
                     if (!palabra.isEmpty()) {
                         numPalabras++;
                         palabra = palabra.toLowerCase();
-                        frecuencias.put(palabra, frecuencias.getOrDefault(palabra, 0) + 1);
+                        frecuencia.put(palabra, frecuencia.getOrDefault(palabra, 0) + 1);
                     }
                 }
             }
@@ -43,7 +43,7 @@ public class EjercicioB7 {
         System.out.println("Número de caracteres: " + numCaracteres);
 
         System.out.println("Las 10 palabras más comunes:");
-        frecuencias.entrySet().stream()
+        frecuencia.entrySet().stream()
                 .sorted((e1, e2) -> e2.getValue().compareTo(e1.getValue()))
                 .limit(10)
                 .forEach(e -> System.out.println(e.getKey() + " : " + e.getValue()));
