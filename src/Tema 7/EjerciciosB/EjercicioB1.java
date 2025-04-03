@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class EjercicioB1 {
     public static void main(String[] args) {
-        String archivo = "numeros.txt";
+        String archivo = "src/tema7/ejercicios_B/Documentos/numeros.txt";
         try {
             Scanner scanner = new Scanner(new File(archivo));
             if (!scanner.hasNextDouble()) {
