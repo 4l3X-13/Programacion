@@ -16,7 +16,7 @@ public class Ejercicio1 {
             writer.println("Edad: " + edad);
             System.out.println("Datos guardados en usuario.txt");
         } catch (Exception e) {
-            System.err.println("Error al escribir en el fichero: " + e.getMessage());
+            System.out.println("Error al escribir en el fichero: " + e.getMessage());
         }
     }
 }
