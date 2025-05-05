@@ -1,6 +1,7 @@
 package tema8.RepasoSQL;
 
-public class RepasoSQL {/*
+public class RepasoSQL {
+    /*
 
 1. 
     SELECT nombre, apellido
