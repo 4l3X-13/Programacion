@@ -18,7 +18,7 @@ class Alumno {
 
 public class Ejercicio2 {
     public static void main(String[] args) {
-        String nombreArchivo = "alumnos_notas.txt";
+        String nombreArchivo = "src/tema7/FicherosYserialización/usuario.txt";
         List<Alumno> listaAlumnos = new ArrayList<>();
 
         try {
