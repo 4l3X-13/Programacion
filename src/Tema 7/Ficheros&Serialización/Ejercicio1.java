@@ -11,12 +11,12 @@ public class Ejercicio1 {
         System.out.print("Introduce tu edad: ");
         int edad = scanner.nextInt();
 
-        try (PrintWriter writer = new PrintWriter("usuario.txt")) {
+        try (PrintWriter writer = new PrintWriter("src/tema7/FicherosYserialización/usuario.txt")) {
             writer.println("Nombre: " + nombre);
             writer.println("Edad: " + edad);
             System.out.println("Datos guardados en usuario.txt");
         } catch (Exception e) {
-            System.out.println("Error al escribir en el fichero: " + e.getMessage());
+            System.err.println("Error al escribir en el fichero: " + e.getMessage());
         }
     }
 }
