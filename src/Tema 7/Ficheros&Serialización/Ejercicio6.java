@@ -1,56 +1,27 @@
 package tema7.FicherosYserialización;
 
 import java.io.*;
-import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Ejercicio6 {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Introduce el número a buscar en PI: ");
-        String numero = scanner.nextLine();
-        scanner.close();
+        Persona p1 = new Persona("Alex", 20);
+        Persona p2 = new Persona("Pau", 21);
+        Persona p3 = new Persona("Ana", 22);
 
-        String archivoPI = "pi-million.txt";
+        ArrayList<Persona> listaPersonas = new ArrayList<>();
+        listaPersonas.add(p1);
+        listaPersonas.add(p2);
+        listaPersonas.add(p3);
 
-        try {
-            BufferedReader lector = new BufferedReader(new FileReader(archivoPI));
-            StringBuilder pi = new StringBuilder();
-            String linea;
+        String ruta = "src/tema7/FicherosYserialización/personas.dat";
 
-            while ((linea = lector.readLine()) != null) {
-                pi.append(linea.trim());
-            }
-
-            lector.close();
-
-            int posicion = buscarEnPi(pi.toString(), numero);
-
-            if (posicion == -1) {
-                System.out.println("El número " + numero + " no se encuentra en el primer millón de decimales de PI.");
-            } else {
-                System.out.println("El número " + numero + " se encuentra en la posición " + posicion + " de los decimales de PI.");
-            }
-
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(ruta))) {
+            oos.writeObject(listaPersonas);
+            System.out.println("Se serializó correctamente.");
         } catch (IOException e) {
-            System.out.println("Error al leer el archivo.");
+            System.err.println("Error al serializar la lista:");
+            e.printStackTrace();
         }
-    }
-
-    public static int buscarEnPi(String pi, String numero) {
-        int m = numero.length();
-        int n = pi.length();
-
-        for (int i = 0; i <= n - m; i++) {
-            int j;
-            for (j = 0; j < m; j++) {
-                if (pi.charAt(i + j) != numero.charAt(j)) {
-                    break;
-                }
-            }
-            if (j == m) {
-                return i;
-            }
-        }
-        return -1;
     }
 }
