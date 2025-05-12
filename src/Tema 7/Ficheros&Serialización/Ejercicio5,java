@@ -1,52 +1,18 @@
 package tema7.FicherosYserialización;
 
 import java.io.*;
-import java.util.*;
 
 public class Ejercicio5 {
     public static void main(String[] args) {
-        String nombreCarpeta = "Diccionario";
-        String archivoDiccionario = "diccionario.txt";
+        String ruta = "src/tema7/FicherosYserialización/persona.dat";
 
-        File carpeta = new File(nombreCarpeta);
-        if (!carpeta.exists()) {
-            carpeta.mkdir();
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream(ruta))) {
+            Persona personaLeida = (Persona) ois.readObject();
+            System.out.println("Objeto leído del fichero:");
+            System.out.println(personaLeida);
+        } catch (IOException | ClassNotFoundException e) {
+            System.err.println("Error al leer el objeto:");
+            e.printStackTrace();
         }
-
-        Map<Character, List<String>> palabrasPorLetra = new HashMap<>();
-
-        try {
-            BufferedReader lector = new BufferedReader(new FileReader(archivoDiccionario));
-            String linea;
-
-            while ((linea = lector.readLine()) != null) {
-                if (!linea.isEmpty()) {
-                    char letraInicial = Character.toUpperCase(linea.charAt(0));
-                    if (!palabrasPorLetra.containsKey(letraInicial)) {
-                        palabrasPorLetra.put(letraInicial, new ArrayList<>());
-                    }
-                    palabrasPorLetra.get(letraInicial).add(linea);
-                }
-            }
-            lector.close();
-        } catch (IOException e) {
-            System.out.println("Error al leer el archivo.");
-        }
-
-        for (Map.Entry<Character, List<String>> entrada : palabrasPorLetra.entrySet()) {
-            String nombreArchivo = nombreCarpeta + "/" + entrada.getKey() + ".txt";
-            try {
-                BufferedWriter escritor = new BufferedWriter(new FileWriter(nombreArchivo));
-                for (String palabra : entrada.getValue()) {
-                    escritor.write(palabra);
-                    escritor.newLine();
-                }
-                escritor.close();
-            } catch (IOException e) {
-                System.out.println("Error al escribir en el archivo: " + entrada.getKey());
-            }
-        }
-
-        System.out.println("Archivos generados correctamente en la carpeta '" + nombreCarpeta + "'.");
     }
 }
