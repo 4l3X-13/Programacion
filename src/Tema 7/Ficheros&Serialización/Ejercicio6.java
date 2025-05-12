@@ -5,9 +5,9 @@ import java.util.ArrayList;
 
 public class Ejercicio6 {
     public static void main(String[] args) {
-        Persona p1 = new Persona("Alex", 20);
-        Persona p2 = new Persona("Pau", 21);
-        Persona p3 = new Persona("Ana", 22);
+        Persona p1 = new Persona("Alex", 19);
+        Persona p2 = new Persona("Pau", 20);
+        Persona p3 = new Persona("Ana", 20);
 
         ArrayList<Persona> listaPersonas = new ArrayList<>();
         listaPersonas.add(p1);
